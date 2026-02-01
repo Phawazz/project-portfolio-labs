@@ -42,3 +42,16 @@ There are 2 key things to take note of.
 
 #### Notes:
 * Pandas is remains critical to the entire workflow! The ability to efficiently inspect, drop and clean data is probably just as important as the modeling itself.
+
+### 01-02-2026: Model Persistence with Joblib
+#### Key Concepts
+`Joblib` is an alternative to `pickle` that can also be used for storing and restoring models. Because `Joblib` is generally faster and more efficient than `pickle`, it is preferred for objects with **large NumPy arrays** while Pickle is primarily used for serialisation of general-purpose Python objects.
+
+#### New Python Libraries/Modules used today:
+* Functions: Just like in `pickle`, `joblib.dump(model, 'filename.pkl')` to save, and `joblib.load('filename.pkl')` to restore.
+* File extensions: `.pkl` or `.joblib` can be used.
+
+#### Notes:
+* **Syntax Convenience:** Unlike `pickle` which usually requires a file object (created via `with open(...)`) for safety purposes, joblib can accept the filename string directly, making the code cleaner.
+
+* **Security:** Remains critical. One should never load files that come from untrusted sources as they may contain malicious code.
