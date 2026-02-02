@@ -55,3 +55,10 @@ There are 2 key things to take note of.
 * **Syntax Convenience:** Unlike `pickle` which usually requires a file object (created via `with open(...)`) for safety purposes, joblib can accept the filename string directly, making the code cleaner.
 
 * **Security:** Remains critical. One should never load files that come from untrusted sources as they may contain malicious code.
+
+### 02-02-2026: Introduction to Decision Trees
+#### Key Concepts
+Decision trees are basically hierarchical models or algorithms that split data based on features. These non-parametric models can predict the value of a target variable by learning decision rules inferred from the training data. Its **main components** include `Root Node`, which refers to the entire dataset, `Decision Nodes`, which are points where the data splits based on a specific feature such as being above or below certain thresholds, and `Leaf/Terminal Nodes`, which refer to the final endpoints where a prediction is made, and no further splits. 
+
+* **Advantages:** Easy to interpret and straightforward for visualization
+* **Disadvantages:** They are prone to overfitting, and hence `max_depth` is used to limit the model from learning everything about the training data.
