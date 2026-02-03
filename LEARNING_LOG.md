@@ -65,8 +65,9 @@ Decision trees are basically hierarchical models or algorithms that split data b
 
 ### 03-02-2026: Training a Decision Tree [Regression Tree]
 #### Key Concepts
-**Recursive Binary Splitting:** Binary implies that the tree will always split into two branches while 'recursive' is a programming term that refers to applying the same logic iteratively to every subsets that's being created. 
+**Recursive Binary Splitting:** Binary implies that the tree will always split into two branches while 'recursive' is a programming term that refers to applying the same logic iteratively to every subset that's being created. 
 
 **The steps:**
 * **Step 1:** Starting at the root node, consideration of all possible binary splits. Here, the model looks at every single feature and every possible threshold.
-* **Step 2:** Selection based on the most minimum MSE. 
+* **Step 2:** Among all possible splits, the tree **selects** the one that gives the lowest Mean Squared Error (MSE) in the child nodes. This ensures that the resulting groups are the most 'pure' (meaning the resulting group has target values similar to each other (low variance)) or 'organized'. 
+* **Step 3:** The repeat. At this point following the creation of two branches at each split, the model keeps repeating steps 1 & 2 for the new subsets until a stopping criterion (like `max_depth`) is reached.
