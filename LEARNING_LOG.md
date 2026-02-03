@@ -62,3 +62,11 @@ Decision trees are basically hierarchical models or algorithms that split data b
 
 * **Advantages:** Easy to interpret and straightforward for visualization
 * **Disadvantages:** They are prone to overfitting, and hence `max_depth` is used to limit the model from learning everything about the training data.
+
+### 03-02-2026: Training a Decision Tree [Regression Tree]
+#### Key Concepts
+**Recursive Binary Splitting:** Binary implies that the tree will always split into two branches while 'recursive' is a programming term that refers to applying the same logic iteratively to every subsets that's being created. 
+
+**The steps:**
+* **Step 1:** Starting at the root node, consideration of all possible binary splits. Here, the model looks at every single feature and every possible threshold.
+* **Step 2:** Selection based on the most minimum MSE. 
