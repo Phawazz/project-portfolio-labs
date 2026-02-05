@@ -79,7 +79,7 @@ Pruning: Just like gardening involves trimming branches to help a plant thrive, 
 * **Step 1:** Allow the tree to grow to its maximum extent. This intentionally creates a model with **low bias but high variance** (essentially an overfitted model)
 * **Step 2:** Systematically cut back the "weakest" branches, the ones that provide little predictive power. This increases the model's stability (lower variance)
 
-`The Role of Cross-Validation (K-Fold):` So how do we know the branches that are useless? We use cross-validation to test the tree.
+* **The Role of Cross-Validation (K-Fold):** So how do we know the branches that are useless? We use cross-validation to test the tree.
 * If we cut a branch and the MSE (Mean Squared Error) **increases**, that branch was critical. We keep it.
 * If we cut a branch and the MSE **stays the same or improves**, that branch was just noise. We permanently cut it.
 
