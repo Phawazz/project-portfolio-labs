@@ -71,3 +71,17 @@ Decision trees are basically hierarchical models or algorithms that split data b
 * **Step 1:** Starting at the root node, consideration of all possible binary splits. Here, the model looks at every single feature and every possible threshold.
 * **Step 2:** Among all possible splits, the tree **selects** the one that gives the lowest Mean Squared Error (MSE) in the child nodes. This ensures that the resulting groups are the most 'pure' (meaning the resulting group has target values similar to each other (low variance)) or 'organized'. 
 * **Step 3:** The repeat. At this point following the creation of two branches at each split, the model keeps repeating steps 1 & 2 for the new subsets until a stopping criterion (like `max_depth`) is reached.
+
+### 04-02-2026: Pruning a Decision Tree
+#### Key Concepts
+Pruning: Just like gardening involves trimming branches to help a plant thrive, pruning in ML involves removing "weak" sections of a decision tree that don't add predictive value. The strategy used here is **Post-Pruning**:
+
+* **Step 1:** Allow the tree to grow to its maximum extent. This intentionally creates a model with **low bias but high variance** (essentially an overfitted model)
+* **Step 2:** Systematically cut back the "weakest" branches, the ones that provide little predictive power. This increases the model's stability (lower variance)
+
+`The Role of Cross-Validation (K-Fold):` So how do we know the branches that are useless? We use cross-validation to test the tree.
+* If we cut a branch and the MSE (Mean Squared Error) **increases**, that branch was critical. We keep it.
+* If we cut a branch and the MSE **stays the same or improves**, that branch was just noise. We permanently cut it.
+
+#### Notes:
+* **The Bias-Variance Tradeoff:** Since an ideal model with low bias (captures patterns in training data effectively) and low variance (generalises perfectly to unseen data) is highly unlikely, **pruning** serves as a strategic exchange. We accept a tiny bit less accuracy on training data (bias) to get a model that works much better on new, unseen data (variance).
