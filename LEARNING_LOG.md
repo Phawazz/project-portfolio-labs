@@ -85,4 +85,4 @@ So how do we know the branches that are useless? We use cross-validation to test
 * If we cut a branch and the MSE **stays the same or improves**, that branch was just noise. We permanently cut it.
 
 #### Notes:
-* **The Bias-Variance Tradeoff:** Since an ideal model with low bias (captures patterns in training data effectively) and low variance (generalises perfectly to unseen data) is highly unlikely, **pruning** serves as a strategic exchange. We accept a tiny bit less accuracy on training data (bias) to get a model that works much better on new, unseen data (variance).
+* **The Bias-Variance Tradeoff:** Since an ideal model with low bias (captures patterns in training data effectively) and low variance (generalises perfectly to unseen data) is highly unlikely, **pruning** serves as a strategic exchange. We accept a tiny bit less accuracy on training data (bias) to get a model that works much better on new, unseen data (variance). 
