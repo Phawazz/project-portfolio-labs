@@ -86,3 +86,21 @@ So how do we know the branches that are useless? We use cross-validation to test
 
 #### Notes:
 * **The Bias-Variance Tradeoff:** Since an ideal model with low bias (captures patterns in training data effectively) and low variance (generalises perfectly to unseen data) is highly unlikely, **pruning** serves as a strategic exchange. We accept a tiny bit less accuracy on training data (bias) to get a model that works much better on new, unseen data (variance). 
+
+
+### 10-02-2026: Understanding Key Decision Tree Terminologies
+#### Key Concepts
+
+Today, I decided to properly understand the confusing terms behind the decision tree algorithm. While I reviewed a couple of resources online, this [youtube video](https://youtu.be/-W0DnxQK1Eo?si=-7GVEc-tYTIJdWTp) and [article](https://towardsdatascience.com/decision-trees-explained-entropy-information-gain-gini-index-ccp-pruning-4d78070db36c/) proved very helpful, explaining directly from first principles while also directly applying the mathematical equations to a fictitious dataset.
+
+The core concepts are **Gini Impurity**, **Entropy**, and **Information Gain**. These are the metrics the algorithm uses to decide "Where do I split?". The goal is always to create child nodes that are more pure or homogenous than the parent. 
+
+* **Gini Impurity:** This is a metric that measures the probability of a random sample being misclassified. It calculates the purity of a node and its values range from 0 (**pure node**) to 0.5 (**maximum impurity/perfectly mixed**). The minimum gini impurity from all available conditions is used as the tree-splitting criteria. Lower values indicate better, more homogenous splits. In algorithms like the scikit-learn `DecisionTreeClassifier`, Gini Impurity is used as the default criterion to select the best split by choosing the feature that results in the lowest weighted Gini impurity. 
+
+* **Entropy & Information Gain:** Entropy is a measure of randomness or disorder. In decision trees, it's a measure of **disorder** or **impurity** in a node. Hence, a **pure node** (entropy = 0) is one in which all samples belong to a single class, while a node with an entropy of 1.0 has the highest possible disorder. The goal at each decision node is that, of all possible splits, the node with the lowest entropy is selected. The reduction in entropy from a parent node to a child node is known as **information gain** and it's calculated by subtracting the weighted average of the children's entropy from the parent's entropy. The higher the information gain, the more "disorder" or "impurity" that has been removed, and the better the split.
+
+#### In Summary:
+The best split is selected based on:
+    1. **Lowest Gini Impurity** (also called **Gini Index**) 
+    2. **Lowest Entropy** 
+    3. **Highest Information Gain.** 
