@@ -101,6 +101,6 @@ The core concepts are **Gini Impurity**, **Entropy**, and **Information Gain**. 
 
 #### In Summary:
 The best split is selected based on:
-    1. **Lowest Gini Impurity** (also called **Gini Index**) 
-    2. **Lowest Entropy** 
-    3. **Highest Information Gain.** 
+* 1. **Lowest Gini Impurity** (also called **Gini Index**) 
+* 2. **Lowest Entropy** 
+* 3. **Highest Information Gain.** 
