@@ -1,7 +1,7 @@
 # Salary Prediction with Decision Trees 
 
 ## Project Overview
-This project builds a Machine Learning model to predict whether an employee earns more than **$100,000/year** based on their educational and professional background. It serves as a practical application of the **Decision Tree Classifier** algorithm and explores concepts like **Gini Impurity** and **Entropy**.
+In this project, I built a Machine Learning model to predict whether an employee earns more than **$100,000/year** based on their educational and professional background. It serves as a practical application of the **Decision Tree Classifier** algorithm and in order to check my understanding of the tree-splitting criteria used by this algorithm, I decided to use **Entropy** instead of the default **Gini Impurity**.
 
 ## Objective
 To classify employees into two salary brackets (`<=100k` and `>100k`) based on three categorical features:
@@ -23,5 +23,5 @@ To classify employees into two salary brackets (`<=100k` and `>100k`) based on t
 5.  **Visualization:** Plotted the actual Decision Tree logic using Matplotlib to trace the decision path (Root -> Leaf).
 
 ## Limitations
-- **Small Dataset:** The model was trained on a small, fictitious dataset for learning purposes.
-- **Limited Features:** Real-world salary prediction requires more complex features (Years of Experience, Location, Performance).
+- **Small Dataset:** The model was trained on a small, fictitious dataset gotten from a youtube tutorial I just watched.
+- **Limited Features:** Real-world salary prediction will ofcourse, require more complex features (Years of Experience, Location, Performance, etc).
