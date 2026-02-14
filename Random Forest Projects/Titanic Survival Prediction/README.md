@@ -23,5 +23,6 @@ I got tired of manually cleaning data as soon as I came across a better way to d
 1.  **Pipelines are King:** At first, the `BaseEstimator` and `TransformerMixin` syntax looked scary (I literally zoomed off onto something else other than working for over 30 mins). But once it clicked, I realized how powerful it is to bundle everything into one object.
 2.  **Data Leakage is Real:** Learned the hard way that you can't just `fit_transform` on the Test Set. You have to use the "ruler" you built during training.
 3.  **Stratification Matters:** Random splitting is dangerous. You need your test set to be a true mirror of reality. There must be same proportion of rich people, gender, and survival status in each set.
+4. **Intermittent breaks are needed:** While cleaning the data, Pandas warned that `.fillna(method='ffill')` would be deprecated and suggested `obj.ffill()` instead. In my overworked brain, I wrote `method='obj.ffill()'` without realising that "obj" is meant to refer to **the DataFrame object itself**! I literally thought I was supposed to type the word 'obj' inside the code haha!
 
 ---
