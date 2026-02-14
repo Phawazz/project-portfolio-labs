@@ -1,8 +1,8 @@
-# Titanic Survival Prediction (Random Forest Pipeline) 
+# Titanic Survival Prediction (Random Forest Full Pipeline) 
 
 I honestly just wanted to build a simple Decision Tree to tick off a youtube tutorial I had just watched. However, after checking the data, discussion and the some submissions on Kaggle, I fell down a rabbit hole of production-grade Machine Learning and ended up building a full **Random Forest Pipeline** instead.
 
-This is a complete engineering pipeline that processes raw data, handles missing values, and tunes itself to predict who survived the 1912 Titanic shipwreck.
+This is a complete engineering pipeline that processes raw data, handles missing values, and tunes itself to predict those who survived the 1912 Titanic shipwreck.
 
 ## The "Why"
 I got tired of manually cleaning data as soon as I came across a better way to do this with Python's object-oriented programming which allowed me to create classes and keep re-using them. Therefore, I learnt the advanced stuff: **Custom Transformers** and **Pipelines**. By *inheriting* from Scikit-Learn's `BaseEstimator` & `TransformerMixin`, I built a system that automates the boring parts. Now, the code handles the cleanup logic itself, leaving me to focus on the actual model performance.
