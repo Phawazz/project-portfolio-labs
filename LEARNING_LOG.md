@@ -110,7 +110,7 @@ The best split is selected based on:
 
 I have spent over a week learning and working on decision trees with resources outside the scope of my ALX program. By consuming youtube videos and technical articles, I have not only gained a clear understanding of how decision trees work, but also their application in both classification and regression tasks, and their role as the foundation for more robust algorithms like Random Forest. 
 
-To summarise, both classification and regression trees use **recursive binary splitting** to iteratively partitiondoc data from the **root node** (where the entire dataset is present) to the **terminal nodes** where the final prediction is made. The splitting criteria, however, differ for both tree types.
+To summarise, both classification and regression trees use **recursive binary splitting** to iteratively partition data from the **root node** (where the entire dataset is present) to the **terminal nodes** where the final prediction is made. The splitting criteria, however, differ for both tree types.
 
 In classification trees, the metrics for splitting are Gini impurity, Entropy (and information gain) while in Regression trees, Mean Squared Error (which measures variance) is the main criterion for splitting. Hence, the goal in classification trees is to **maximise purity** at every split while regression aims to **minimize error(variance).**
 
