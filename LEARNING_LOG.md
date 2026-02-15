@@ -110,6 +110,10 @@ The best split is selected based on:
 
 I have spent over a week learning and working on decision trees with resources outside the scope of my ALX program. By consuming youtube videos and technical articles, I have not only gained a clear understanding of how decision trees work, but also their application in both classification and regression tasks, and their role as the foundation for more robust algorithms like Random Forest. 
 
-To summarise, both classification and regression trees use **recursive binary splitting** to iteratively divide data from the **root node** (where the entire dataset is present) to the **terminal nodes** where the final prediction is made. The splitting criteria, however, differ for both tree types.
+To summarise, both classification and regression trees use **recursive binary splitting** to iteratively partitiondoc data from the **root node** (where the entire dataset is present) to the **terminal nodes** where the final prediction is made. The splitting criteria, however, differ for both tree types.
 
 In classification trees, the metrics for splitting are Gini impurity, Entropy (and information gain) while in Regression trees, Mean Squared Error (which measures variance) is the main criterion for splitting. Hence, the goal in classification trees is to **maximise purity** at every split while regression aims to **minimize error(variance).**
+
+Lastly, there are two main ways to visualise a decision tree:
+1. **The Tree Structure:** A flowchart showing the nodes, branches, and splitting rules (using `plot_tree` from `sklearn.tree`). A pro tip I found here is the use of a semicolon (';') at the end of the line (or assigning the code to a dummy variable) in order to **supress** text output and render the clean plot **ONLY**.
+2. **The Decision Surface (or Step Function):** A plot showing how the model partitions the feature space into distinct regions. For regression, this looks like a **step function** (staircase) because the prediction remains constant within each leaf node.
