@@ -120,7 +120,7 @@ Lastly, there are two main ways to visualise a decision tree:
 
 ### 22-02-2026: Ensemble Methods & The Wisdom of Crowds
 > “The theory of the “wisdom of crowds” says that if you aggregate many different opinions from a diverse group of people, you are much more likely to arrive at the best opinion than if you just listen to one specialist.”
-> - (Simon Kuper)[https://www.goodreads.com/quotes/1326284-the-theory-of-the-wisdom-of-crowds-says-that-if]
+> - [Simon Kuper](https://www.goodreads.com/quotes/1326284-the-theory-of-the-wisdom-of-crowds-says-that-if)
 
 #### Key Concept: 
 Ensemble methods refer to combining multiple models in order to create a "strong learner" that outperforms any single, "weak" model. They are built on the idea of "wisdom of crowds." Instead of relying on a single potentially biased or unstable model, we leverage the collective intelligence of multiple models to improve robustness and accuracy. 
