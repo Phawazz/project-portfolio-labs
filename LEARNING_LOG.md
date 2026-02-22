@@ -117,3 +117,17 @@ In classification trees, the metrics for splitting are Gini impurity, Entropy (a
 Lastly, there are two main ways to visualise a decision tree:
 1. **The Tree Structure:** A flowchart showing the nodes, branches, and splitting rules (using `plot_tree` from `sklearn.tree`). A pro tip I found here is the use of a semicolon (';') at the end of the line (or assigning the code to a dummy variable) in order to **supress** text output and render the clean plot **ONLY**.
 2. **The Decision Surface (or Step Function):** A plot showing how the model partitions the feature space into distinct regions. For regression, this looks like a **step function** (staircase) because the prediction remains constant within each leaf node.
+
+### 22-02-2026: Ensemble Methods & The Wisdom of Crowds
+> “The theory of the “wisdom of crowds” says that if you aggregate many different opinions from a diverse group of people, you are much more likely to arrive at the best opinion than if you just listen to one specialist.”
+> - (Simon Kuper)[https://www.goodreads.com/quotes/1326284-the-theory-of-the-wisdom-of-crowds-says-that-if]
+
+#### Key Concept: 
+Ensemble methods refer to combining multiple models in order to create a "strong learner" that outperforms any single, "weak" model. They are built on the idea of "wisdom of crowds." Instead of relying on a single potentially biased or unstable model, we leverage the collective intelligence of multiple models to improve robustness and accuracy. 
+
+#### Two Main Classifications:
+* **Heterogenous methods:** These combine algorithms/models of different types (eg Random Forest, Logistic Regression & Support Vector Machine (SVM)) working on the same dataset. Common types of heterogenous methods include **Stacking** and **Voting**.
+* **Homogenous methods:** These combine multiple versions of the same type of model (usually decision trees). Common examples include **Bagging** and **Boosting**.
+
+#### Quick Note:
+A **Random Forest**, is by definition, a **bagging ensemble**. It takes many versions of decision trees, and trains them in a parallel manner. However, if we take a Random Forest and 'stack' it to a logistic regression and an SVM, we have now created a **heterogenous ensemble**.
