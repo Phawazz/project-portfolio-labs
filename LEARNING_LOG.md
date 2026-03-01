@@ -131,3 +131,13 @@ Ensemble methods refer to combining multiple models in order to create a "strong
 
 #### Quick Note:
 A **Random Forest**, is by definition, a **bagging ensemble**. It takes many versions of decision trees, and trains them in a parallel manner. However, if we take a Random Forest and 'stack' it to a logistic regression and an SVM, we have now created a **heterogenous ensemble**.
+
+### 01-03-2026: Wide vs Long Data Formats
+#### Key Concept: 
+Data often comes in two formats: Wide and Long. In wide formats, each row is an **entity** and columns represent different time points or categories. For example, a single row per patient with columns of heart rates at various time intervals: "HR_10AM", "HR_11AM", etc. The best use cases for wide formats are in manual data entry, excel spreadsheets, and human-readable summaries. However, in long formats, each row is a single observation. A good example is a single row for a patient's heart rate at 10AM another row for the patient's heart rate at 11AM. Long formats are the required formats for libraries like `seaborn` for plotting and `Scikit-Learn` for modelling.
+
+#### Conversion between both formats in Pandas
+Using functions like `pandas.melt` and `pandas.pivot` respectively, one can reshape a dataframe from a wide format into a long one, and vice-versa. Specifically, `pd.melt` uses `id_vars` to keep certain columns fixed while 'unpivoting' others into a key-value pair, whereas `pd.pivot` (or `pd.pivot_table`) requires an `index`, `columns`, and `values` to reconstruct the wide structure.
+
+#### Summary: 
+In conclusion, I’ve learned that the long format is more efficient for dense data storage, whereas the wide format offers better clarity for tabular reporting. Ultimately, the best choice depends on the specific goals of the project. Thanks to some helpful materials from [Towardsdatascience.com](https://towardsdatascience.com/long-and-wide-formats-in-data-explained-e48d7c9a06cb/) and [Youtuve](https://www.youtube.com/watch?v=YTJ7UdiQYh8)
