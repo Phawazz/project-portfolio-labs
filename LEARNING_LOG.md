@@ -140,6 +140,6 @@ Data often comes in two formats: Wide and Long. In **wide formats**, each row is
 Using functions like `pandas.melt` and `pandas.pivot` respectively, one can reshape a dataframe from a wide format into a long one, and vice-versa. Specifically, `pd.melt` uses `id_vars` to keep certain columns fixed while 'unpivoting' others into a key-value pair, whereas `pd.pivot` (or `pd.pivot_table`) requires an `index`, `columns`, and `values` to reconstruct the wide structure.
 
 #### Summary: 
-In conclusion, I’ve learned that the long format is more efficient for dense data storage, whereas the wide format offers better clarity for tabular reporting. Ultimately, the best choice depends on the specific goals of the project. 
+In conclusion, I’ve learned that the wide format is actually more efficient for storing data because it doesn't repeat names or dates over and over. However, the long format is much better for performing analysis, as it’s the "tidy" way machines and libraries expect to see data. Essentially, wide is for human eyes and saving space, while long is for coding and modeling. Ultimately, the best choice depends on whether you are reporting results (in a tabular format) or building a model.
 
 - Thanks to some helpful materials from [Towardsdatascience.com](https://towardsdatascience.com/long-and-wide-formats-in-data-explained-e48d7c9a06cb/) and [Youtube](https://www.youtube.com/watch?v=YTJ7UdiQYh8)
