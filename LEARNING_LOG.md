@@ -143,3 +143,14 @@ Using functions like `pandas.melt` and `pandas.pivot` respectively, one can resh
 In conclusion, I’ve learned that the wide format is actually more efficient for storing data because it doesn't repeat names or dates over and over. However, the long format is much better for performing analysis, as it’s the "tidy" way machines and libraries expect to see data. Essentially, wide is for human eyes and saving space, while long is for coding and modeling. Ultimately, the best choice depends on whether you are reporting results (in a tabular format) or building a model.
 
 - Thanks to some helpful materials from [Towardsdatascience.com](https://towardsdatascience.com/long-and-wide-formats-in-data-explained-e48d7c9a06cb/) and [Youtube](https://www.youtube.com/watch?v=YTJ7UdiQYh8)
+
+### 02-03-2026: Heterogenous Ensembles: Voting vs Stacking
+#### Introduction: 
+Like earlier stated, heterogenous ensembles combine multiple model types to create one with lower bias and variance, and greater accuracy of predictions. Working on the house prediction dataset again with the predictor variable being 'LotArea' and the response variable being 'SalePrice', I trained and assessed the root mean squared errors (RMSE) of three individual models: a linear regression model, decision tree, and a support vector regression model. Following that, I carried out heterogenous ensembling using `VotingRegressor` and `StackingRegressor` from `sklearn.ensemble`, and evaluated the metric of both. In summary, among the individual models, the support vector regressor has the lowest RMSE while among the heterogenous ensembles, Stacking showed a lower RMSE.
+
+#### Key Concept: 
+There are two common heterogenous ensembling methods: VOTING & STACKING.
+- **Voting:** Voting works by combining the outputs of individual models based on a 'majority rule' approach. That is, for regression tasks, the average or weighted average of all predictions is used and for classification tasks, the most frequently occuring prediction (mode) is used. Implementing a `VotingRegressor` involves instantiating the model and passing arguments for `estimators` (the models), and `weights` (the fraction of outputs to take from each of the individual models.)
+
+- **Stacking:** Unlike voting, which uses a simple functional aggregation (like averaging), stacking treats the individual models as the **base-learners (Level 0)**, and feeds their outputs into inputs for the **meta-learner (Level 1)**, which trains on these observations. A stacking resemble is created as follows:
+`stack_mod = StackingRegressor(estimators=models, final_estimator=LinearRegression())`. The estimators refer to the models we are combining, just as in voting, while the final estimator refers to the model we are choosing as our **meta-learner**, in this case a linear refression model.
