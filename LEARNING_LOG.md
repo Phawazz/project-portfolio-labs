@@ -152,7 +152,7 @@ As previously established, heterogenous ensembles combine diverse model types to
 There are two common methods heterogenous ensembling: **Voting** & **Stacking**.
 - **Voting:** This method combines the outputs of individual models based on a "majority rule" or averaging approach. For regression tasks, the final prediction is either the simple or weighted average of all base model outputs. In classification, the most frequent prediction (mode) is used. Implementing a `VotingRegressor` involves passing the **estimators** (the base models) and optional **weights** (the specific influence each individual model has on the final result) as arguments.
 
-- **Stacking (Stacked Generalisation):** Unlike voting, which uses a fixed functional aggregation (like a mean), stacking treats individual models as base-learners (Level 0) and feeds their predictions as input features into a meta-learner (Level 1). The meta-learner is then trained on these observations to determine how to best combine the base-learners' strengths. A stacking ensemble is created as follows: 
+- **Stacking (aka Stacked Generalisation):** Unlike voting, which uses a fixed functional aggregation (like a mean), stacking treats individual models as base-learners (Level 0) and feeds their predictions as input features into a meta-learner (Level 1). The meta-learner is then trained on these observations to determine how to best combine the base-learners' strengths. A stacking ensemble is created as follows: 
 `stack_mod = StackingRegressor(estimators=models, final_estimator=LinearRegression())`. 
 Here, the `estimators` parameter represents to the collection of base models,while the `final_estimator` designates the meta-learner (in this case, a Linear Regression model) that performs the final aggregation.
 
@@ -160,3 +160,14 @@ Here, the `estimators` parameter represents to the collection of base models,whi
 I cannot resist the urge to add this analogy provided by [Gemini](gemini.google.com): 
 > "Voting is a committee where the members' voting power is fixed by a constitution (the weights). Stacking is a committee where a supervisor (the meta-learner) watches everyone's past performance and decides whose opinion to value most for each specific case."
 - In summary, Voting is a single-pass process while Stacking requires a two-stage training pass and internal cross-validation, thus incurring some extra computational requirements.
+
+### 03-03-2026: Homogenous Ensembles: Bagging vs. Boosting
+#### Introduction:
+As previously established as well, homogeneous ensembles combine multiple versions of the same model type (typically decision trees) to create a single estimator with greater predictive power. Unlike heterogeneous ensembles that rely on different models, homogeneous methods achieve diversity by exposing each model to different subsets of the data.
+
+#### Key Concept:
+The two primary techniques for homogeneous ensembling are **Bagging** and **Boosting**.
+
+- **Bagging (Bootstrap Aggregating)**: This method builds models independently and in parallel. Each model is trained on a "bootstrap" sample (a random subset of the data chosen with replacement). By averaging the independent predictions, bagging effectively reduces variance, making it an excellent defense against overfitting. A good example of this is Random Forest.
+
+- **Boosting**: Unlike bagging, boosting builds models *sequentially*. Each new model is specifically designed to correct the errors made by its predecessor. By focusing on the "hard" observations that the previous rounds missed, boosting reduces bias and creates a highly accurate "strong learner" from many "weak learners." Examples include Adaboost, Gradient Boosting, etc.
