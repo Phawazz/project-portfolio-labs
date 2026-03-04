@@ -168,6 +168,13 @@ As previously established as well, homogeneous ensembles combine multiple versio
 #### Key Concept:
 The two primary techniques for homogeneous ensembling are **Bagging** and **Boosting**.
 
-- **Bagging (Bootstrap Aggregating)**: This method builds models independently and in parallel. Each model is trained on a "bootstrap" sample (a random subset of the data chosen with replacement). By averaging the independent predictions, bagging effectively reduces variance, making it an excellent defense against overfitting. A good example of this is Random Forest.
+- **Bagging (Bootstrap Aggregating)**: This method builds models independently and in parallel. Each model is trained on a "bootstrap" sample (a random subset of the data chosen with replacement). By averaging the independent predictions, bagging effectively reduces variance, making it an excellent defense against overfitting. This averaging approach is referred to as **aggregating** and involves finding the mean of independent outputs for regression tasks, and the mode for classification tasks. A good example of this is Random Forest.
 
 - **Boosting**: Unlike bagging, boosting builds models *sequentially*. Each new model is specifically designed to correct the errors made by its predecessor. By focusing on the "hard" observations that the previous rounds missed, boosting reduces bias and creates a highly accurate "strong learner" from many "weak learners." Examples include Adaboost, Gradient Boosting, etc.
+
+### 04-03-2026: Random Forest
+#### Introduction:
+Random Forest has been established to be a homogenous ensemble utilising bagging (bootstrap aggregating) to create a model with enhanced predictive power and lower variance, thereby inherently fixing the issue of overfitting commonly seen in decision trees. It is used in both regression and classification tasks. 
+
+#### Accuracy Assessment:
+- **Out-of-bag error:** Using the out-of-bag dataset (comprising the data points not included in the boostrap datasets), the accuracy of a random forest is assessed by measuring the proportion of out-of-bag samples correctly classified by the random forest
