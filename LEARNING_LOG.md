@@ -168,13 +168,25 @@ As previously established as well, homogeneous ensembles combine multiple versio
 #### Key Concept:
 The two primary techniques for homogeneous ensembling are **Bagging** and **Boosting**.
 
-- **Bagging (Bootstrap Aggregating)**: This method builds models independently and in parallel. Each model is trained on a "bootstrap" sample (a random subset of the data chosen with replacement). By averaging the independent predictions, bagging effectively reduces variance, making it an excellent defense against overfitting. This averaging approach is referred to as **aggregating** and involves finding the mean of independent outputs for regression tasks, and the mode for classification tasks. A good example of this is Random Forest.
+- **Bagging (Bootstrap Aggregating)**: This method builds models independently and in *parallel*. Each model is trained on a "bootstrap" sample (a random subset of the data chosen with replacement). By averaging the independent predictions, bagging effectively reduces variance, making it an excellent defense against overfitting. This averaging approach is referred to as **aggregating** and involves finding the mean of independent outputs for regression tasks, and the mode for classification tasks. A good example of this is Random Forest.
 
 - **Boosting**: Unlike bagging, boosting builds models *sequentially*. Each new model is specifically designed to correct the errors made by its predecessor. By focusing on the "hard" observations that the previous rounds missed, boosting reduces bias and creates a highly accurate "strong learner" from many "weak learners." Examples include Adaboost, Gradient Boosting, etc.
 
 ### 04-03-2026: Random Forest
 #### Introduction:
-Random Forest has been established to be a homogenous ensemble utilising bagging (bootstrap aggregating) to create a model with enhanced predictive power and lower variance, thereby inherently fixing the issue of overfitting commonly seen in decision trees. It is used in both regression and classification tasks. 
+Random Forest is a homogeneous ensemble that utilises bagging (bootstrap aggregating) to create a model with enhanced predictive power and lower variance. By aggregating multiple decision trees, it inherently corrects the issue of overfitting that individual decision trees are typically prone to. The final prediction is determined by voting (mode) for classification tasks or averaging (mean) for regression.
 
-#### Accuracy Assessment:
-- **Out-of-bag error:** Using the out-of-bag dataset (comprising the data points not included in the boostrap datasets), the accuracy of a random forest is assessed by measuring the proportion of out-of-bag samples correctly classified by the random forest
+#### The Bootstrapping Process:
+Since data is drawn randomly with replacement during training, two key phenomena occur:
+- **Resampling**: Some data samples are reused multiple times when fitting the individual trees.
+- **Out-of-Bag (OOB) Samples:** Roughly 36% of the data is never "seen" by a specific tree. These unsampled points form the OOB dataset, which acts as a built-in validation set to assess accuracy without needing a separate test split.
+
+#### Predictive Variable Importance
+Feature Importance in a Random Forest shows which variables matter most for making accurate predictions. The model measures this by randomly mixing up (shuffling) the values of one variable at a time. If the prediction error increases a lot after shuffling, that variable is considered important. If the error barely changes, the variable is less important.
+
+#### Hyperparameters:
+Building an effective Random Forest involves tuning several "knobs" or hyperparameters, some of which include:
+- **n_estimators**: The number of trees in the forest (e.g., 100). More trees generally improve accuracy but increase computational cost.
+- **max_depth**: Controls how deep each tree grows. This is a key control for preventing individual trees from overfitting to the noise in the data.
+- **min_samples_leaf**: The minimum number of samples required to be at a terminal node. This helps "smooth" the model's predictions.
+- **random_state**: An arbitrary choice (like 42) that ensures the "random" sampling is reproducible for consistent results across different runs.
