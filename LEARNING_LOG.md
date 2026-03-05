@@ -182,7 +182,7 @@ Since data is drawn randomly with replacement during training, two key phenomena
 - **Out-of-Bag (OOB) Samples:** Roughly 36% of the data is never "seen" by a specific tree. These unsampled points form the OOB dataset, which acts as a built-in validation set to assess accuracy without needing a separate test split.
 
 #### Predictive Variable Importance
-Feature Importance in a Random Forest shows which variables matter most for making accurate predictions. The model measures this by randomly mixing up (shuffling) the values of one variable at a time. If the prediction error increases a lot after shuffling, that variable is considered important. If the error barely changes, the variable is less important.
+Feature Importance in a Random Forest shows which variables matter most for making accurate predictions. The model measures this by randomly mixing up (shuffling) the values of one variable at a time. If the prediction error increases a lot after shuffling, that variable is considered important. If the error barely changes, the variable is less important. In scikit-learn, this can also be accessed directly using `model.feature_importances_`, which provides each feature’s importance score based on how much it reduces error across the trees.
 
 #### Hyperparameters:
 Building an effective Random Forest involves tuning several "knobs" or hyperparameters, some of which include:
