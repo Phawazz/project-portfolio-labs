@@ -170,7 +170,7 @@ The two primary techniques for homogeneous ensembling are **Bagging** and **Boos
 
 - **Bagging (Bootstrap Aggregating)**: This method builds models independently and in *parallel*. Each model is trained on a "bootstrap" sample (a random subset of the data chosen with replacement). By averaging the independent predictions, bagging effectively reduces variance, making it an excellent defense against overfitting. This averaging approach is referred to as **aggregating** and involves finding the mean of independent outputs for regression tasks, and the mode for classification tasks. A good example of this is Random Forest.
 
-- **Boosting**: Unlike bagging, boosting builds models *sequentially*. Each new model is specifically designed to correct the errors made by its predecessor. By focusing on the "hard" observations that the previous rounds missed, boosting reduces bias and creates a highly accurate "strong learner" from many "weak learners." Examples include Adaboost, Gradient Boosting, etc.
+- **Boosting**: Unlike bagging, boosting builds models *sequentially*. Each new model is specifically designed to correct the errors made by its predecessor. By focusing on the "hard" observations that the previous rounds missed, boosting reduces bias and creates a highly accurate "strong learner" from many "weak learners." Examples include Gradient Boosting, Adaboost, XGBoost etc.
 
 ### 04-03-2026: Random Forest
 #### Introduction:
