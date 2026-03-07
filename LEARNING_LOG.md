@@ -99,6 +99,9 @@ The core concepts are **Gini Impurity**, **Entropy**, and **Information Gain**. 
 
 * **Entropy & Information Gain:** Entropy is a measure of randomness or disorder. In decision trees, it's a measure of **disorder** or **impurity** in a node. Hence, a **pure node** (entropy = 0) is one in which all samples belong to a single class, while a node with an entropy of 1.0 has the highest possible disorder. The goal at each decision node is that, of all possible splits, the node with the lowest entropy is selected. The reduction in entropy from a parent node to a child node is known as **information gain** and it's calculated by subtracting the weighted average of the children's entropy from the parent's entropy. The higher the information gain, the more "disorder" or "impurity" that has been removed, and the better the split.
 
+* **Gini vs Entropy:** In production, the main difference is *speed*. Gini is faster to calculate because it uses basic math (squaring), while Entropy is slower because it requires complex **logarithmic** calculations. For a single small tree, the difference is not noticeable, but when training large models or Random Forests with millions of rows, **Gini** saves significant time and computing power. Since the results of both methods are almost always the same, Gini is generally preferred over Entropy.
+
+
 #### In Summary:
 The best split is selected based on:
 * **Lowest Gini Impurity** (also called **Gini Index**) 
