@@ -193,3 +193,6 @@ Building an effective Random Forest involves tuning several "knobs" or hyperpara
 - **max_depth**: Controls how deep each tree grows. This is a key control for preventing individual trees from overfitting to the noise in the data.
 - **min_samples_leaf**: The minimum number of samples required to be at a terminal node. This helps "smooth" the model's predictions.
 - **random_state**: An arbitrary choice (like 42) that ensures the "random" sampling is reproducible for consistent results across different runs.
+
+#### Quick Note
+Ever wondered why we call it *random forest* and not *“decision forest,”* even though it’s made up of multiple decision trees? The answer lies in the bootstrapping process, where random samples of the data are drawn during training.
