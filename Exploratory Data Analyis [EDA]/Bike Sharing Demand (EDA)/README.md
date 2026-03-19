@@ -13,7 +13,7 @@ Following an existing analytical framework from a Medium article, I used it as a
 - **Data Denormalization:** Reversing Min-Max scaling to restore actual Celsius, Humidity, and Windspeed units.
 - **Advanced Binning:** Precise use of `pd.cut` with `include_lowest=True` and `right=False` to handle edge-case data points (like 0.0 windspeed and cnt of 1 returning NaN).
 - **Vectorized Operations:** Efficiently transforming 17,000+ rows.
-- **Aggregation**: Using `.groupby(observed=True)` and `.reset_index()` to structure data for visualization.
+- **Aggregation**: Realised that the new default for `observed` argument in new versions of `pandas` is `.groupby(observed=True)` and practically put the function `.reset_index()` to good use in structuring data.
 
 ## Key Insights & Findings
 
