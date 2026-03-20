@@ -1,13 +1,20 @@
-# Bike Sharing Demand: From EDA to 0.43 RMSLE
+# Bike Sharing Demand: 0.437 RMSLE with Random Forest
 
 ## Project Overview
-In this project, I worked on the bike sharing demand competition on kaggle, using the `RandomForestRegressor` model for predictions. In the Exploratory Data Analysis (EDA) of this dataset earlier shared under the EDA section of this repo, I carried out analysis and visualisations to track how weather, time of the day, and user type move the needle on urban cycling demand. What started as a tutorial-follow evolved into an optimized workflow where I improved the data processing and hit an **RMLSE of 0.43762** on the Kaggle Leaderboard.
+Following a deep-dive EDA, this phase of the project focuses on the machine learning pipeline for the Kaggle Bike Sharing Demand competition. By implementing a Random Forest Regressor and strategically transforming the target variable, I achieved an **RMSLE of 0.43762** on the global leaderboard.
 
 ## Technical Stack
 - **Environment**: VS Code (Jupyter Notebook).
-- **Stack**: `Pandas`, `NumPy`, `Seaborn`, `Matplotlib`, `Scikit-learn`.
-- **Key Move**: Switched from raw count prediction to **Log-Transformation** (using `np.log1p`) to align with the competition's RMSLE metric.
+- **Libraries**: `Pandas` & `NumPy` (Data Manipulation) & `Scikit-learn` (Modeling).
 
-## Results
-- **Model**: Random Forest Regressor.
-- **Final Score**: 0.43762 (Kaggle Public/Private)
+## The Strategy
+While following baseline frameworks, I made several critical adjustments to improve model generalization:
+- **Temporal Feature Engineering:** Extracted **hour**, **month**, **year**, and **dayofweek** from raw datetime strings to capture the "commuter pulse" identified during EDA.
+- **Log-Transformation (np.log1p)**: This was the main stuff in this little project. By predicting the log of the count rather than the raw value, I aligned the model with the competition’s RMSLE evaluation metric, effectively smoothing out high-demand outliers.
+- **Validation Strategy**: Implemented a 20% hold-out validation set to act as a "local leaderboard," allowing me to verify my RMSLE score before final submission.
+
+
+## Final Results
+- **Model**: Random Forest Regressor
+- **Validation RMSLE:** 0.3037
+- **RMSLE on Kaggle:** 0.43762
