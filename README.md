@@ -8,7 +8,6 @@ Documenting the projects I'm working on for my **ALX Data Science & Machine Lear
 ## Continuous Learning
 I keep a detailed log of the concepts, math intuition, and technical hurdles I encounter. 
 * **[View my Learning Log](./LEARNING_LOG.md)**
-* *Latest Update: [Understanding RMSLE](./LEARNING_LOG.md#21-03-2026-root-mean-squared-logarithmic-error-rmsle)*
 
 ---
 
