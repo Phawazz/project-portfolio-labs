@@ -196,3 +196,32 @@ Building an effective Random Forest involves tuning several "knobs" or hyperpara
 
 #### Quick Note
 Ever wondered why we call it *random forest* and not *“decision forest,”* even though it’s made up of multiple decision trees? The answer lies in the bootstrapping process, where random samples of the data are drawn during training.
+
+### 21-03-2026: Root Mean Squared Logarithmic Error (RMSLE)
+#### Key Concept:
+RMSLE is a regression metric that measures the difference between predictions and actuals after a log transformation. While RMSE cares about the raw distance, RMSLE cares about the relative (percentage-like) difference.
+
+#### Importance:
+Standard metrics like MAE or RMSE can be misleading when the target variable spans different scales. RMSLE addresses this by compressing large values, ensuring the model doesn't get distracted by massive outliers.
+
+#### How it works:
+1. Apply `log1p(x)` to both actuals and predictions (to safely handle zeros).
+2. Compute the squared differences.
+3. Take the mean, then the square root.
+
+#### Key Insight:
+RMSLE **penalizes** underestimates more than overestimates.
+- Actual 100, Predicted 10: Large Penalty.
+- Actual 10, Predicted 100: Smaller Penalty.
+This is the "secret sauce" for tasks like delivery time or bike demand, where underestimating is a bigger error than overestimating.
+
+#### When to use:
+- **Growth data**: Demand, population, or prices.
+- **Scale variance**: When target values vary across different magnitudes.
+- **Relative focus**: When being "off by 10%" matters more than being "off by 10 units."
+
+#### Practical note:
+You can manually transform with `log1p()` and reverse with `expm1()`, or just call `sklearn.metrics.mean_squared_log_error` to handle the math in one go.
+
+#### Key Takeaway:
+RMSLE shifts the focus from “how far off” predictions are to “how far off they are relative to the true value.”
