@@ -225,3 +225,7 @@ You can manually transform with `log1p()` and reverse with `expm1()`, or just ca
 
 #### Key Takeaway:
 RMSLE shifts the focus from “how far off” predictions are to “how far off they are relative to the true value.”
+
+### 28-03-2026: One-Hot Encoding vs Label Encoding
+...
+
