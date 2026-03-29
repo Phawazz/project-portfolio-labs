@@ -226,6 +226,14 @@ You can manually transform with `log1p()` and reverse with `expm1()`, or just ca
 #### Key Takeaway:
 RMSLE shifts the focus from “how far off” predictions are to “how far off they are relative to the true value.”
 
-### 28-03-2026: One-Hot Encoding vs Label Encoding
-...
+### 28-03-2026: One-Hot Encoding vs Label Encoding vs Dummy Encoding
+While doing some analysis with IBM SPSS recently, it occurred to me that depending on the task at hand, there are different ways of encoding categorical data into numerical formats that can be understood by models. This led me to seek a clear understanding of the differences between label, one-hot, and dummy encoding.
 
+**Label Encoding** involves assigning an integer to each category, starting from zero (0). This encoding technique is best used when the categorical data is ordinal (i.e., there is a natural order). What makes SPSS unique is the ability to set the measure as `ordinal` or `nominal`. This allows SPSS to treat the values appropriately during analysis, even though they are numerically coded. In machine learning, however, models do not understand this distinction, they only see numbers. This means *label encoding should generally be used only for ordinal data*, as it can introduce a false sense of ranking for nominal variables. An advantage of label encoding is that it keeps the data compact, with all categories represented in a single column.
+
+**One-Hot Encoding** treats categorical values as independent categories by creating a separate binary column for each one. For instance, if a `colour` column has the categories `blue`, `green`, and `red`, one-hot encoding creates three new columns. For each row, one column takes the value `1` while the others are `0`. The downside is that it increases the number of columns. Three categories become three new columns, while 100 categories become 100. This can increase dimensionality and complexity. However, one-hot encoding works best for **nominal variables** such as gender, blood group, and marital status, where no natural order exists.
+
+Lastly, **Dummy Encoding** works similarly to one-hot encoding but with one fewer column. In the example above, instead of creating three columns, dummy encoding creates two and treats the omitted category as the **reference category**. The reason for dropping one column is to avoid the **dummy variable trap**, a condition of perfect multicollinearity where one variable can be predicted exactly from the others. This is especially important in regression models, which are sensitive to multicollinearity and benefit from having a reference group for interpretation.
+
+**Takeaway:**  
+Label encoding is best for ordered data, while one-hot and dummy encoding are more appropriate for nominal variables. Dummy encoding is particularly useful when working with regression models due to its handling of multicollinearity.
