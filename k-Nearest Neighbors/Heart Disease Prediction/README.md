@@ -7,8 +7,8 @@ In this project, I used a K-Nearest Neighbors (KNN) classifier to predict the pr
 
 ## Exploratory Data Analysis (EDA)
 * **Visualizing Category Distributions:** Created two grids of annotated count plots to:
-- (1) analyze risk factor frequencies across all categorical attributes, and 
-- (2) also analyze the frequencies in both those with and without heart disease.
+* - (1) analyze risk factor frequencies across all categorical attributes, and 
+* - (2) also analyze the frequencies in both those with and without heart disease.
 * **Correlation Matrix Analysis:** Evaluated feature collinearity using a customized correlation threshold of `0.25`. Rather than drops based purely on mathematical multi-collinearity, clinical domain knowledge was applied to retain **Age** as a vital non-negotiable covariate for cardiovascular risk modeling.
 
 ## Data Cleansing & Target-Stratified Imputation
