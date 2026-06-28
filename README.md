@@ -24,7 +24,7 @@ I keep a detailed log of the fundamentals, technical hurdles, and core concepts 
 
 * **Wisconsin Breast Cancer Prediction (Logistic Regression)**
     * **Focus:** Predictive oncology diagnostics. Built a clean classification pipeline achieving 99% model accuracy on the test set.
-    * [View Project](./Logistic%20Regression%20Projects/)
+    * [View Project](./Logistic%20Regression/) 
 
 * **Titanic Survival Prediction (Random Forest)**
     * **Focus:** Automated missing data handling and feature engineering by building custom Scikit-Learn transformer classes (BaseEstimator, TransformerMixin). Designed a strict training pipeline with stratified splitting and GridSearch tuning, resulting in a ~78.5% accurate Random Forest model.
